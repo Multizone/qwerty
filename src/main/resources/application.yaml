@@ -1,0 +1,24 @@
+server:
+  port: 8070
+#
+spring:
+  application:
+    name: ${APP_NAME:healthene-application}
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:192.168.1.22}:${POSTGRES_PORT:5332}/${POSTGRES_DB:healthene}
+    username: ${POSTGRES_USER:healthene}
+    password: ${POSTGRES_PASSWORD:Health380037}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connectionTimeout: ${CON_TIMEOUT:10000}
+      idleTimeout: ${CON_IDLE:20000}
+      maxLifetime: ${CON_LIFE:30001}
+      maximumPoolSize: ${CON_POOL_SIZE:5}
+#
+management:
+  health:
+    db:
+      enabled: true
+    endpoint:
+    health:
+      show-details: always
